@@ -1,0 +1,14 @@
+# Dependencias de producción para el juego Piedra, Papel, Tijeras, Lagarto, Spock
+colorama>=0.4.6
+
+# Dependencias de desarrollo y testing
+pytest>=7.0.0
+pytest-cov>=4.0.0
+black>=22.0.0
+flake8>=5.0.0
+mypy>=1.0.0
+isort>=5.10.0
+
+# Dependencias opcionales para documentación
+sphinx>=5.0.0
+sphinx-rtd-theme>=1.0.0
