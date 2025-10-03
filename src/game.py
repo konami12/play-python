@@ -45,7 +45,7 @@ class RockPaperScissorsGame:
         
     def get_user_choice(self) -> Optional[GameChoice]:
         """
-        Obtiene la elección del usuario desde la entrada de consola.
+        Obtiene la elección del usuario desde la entrada de consola con validación robusta.
         
         Returns:
             GameChoice o None si el usuario quiere salir
@@ -56,10 +56,23 @@ class RockPaperScissorsGame:
             try:
                 choice_input = input(f"{Fore.CYAN}Selecciona tu opción (1-5, o 'q' para salir): {Style.RESET_ALL}").strip()
                 
+                # Verificar si el usuario quiere salir
                 if choice_input.lower() in ['q', 'quit', 'salir']:
                     return None
+                
+                # Verificar entrada vacía
+                if not choice_input:
+                    print(f"{Fore.RED}❌ Entrada inválida. Por favor ingresa un número del 1 al 5.{Style.RESET_ALL}")
+                    continue
                     
+                # Convertir a número
                 choice_number = int(choice_input)
+                
+                # Validar rango antes de llamar a GameChoice
+                if choice_number < 1 or choice_number > 5:
+                    print(f"{Fore.RED}❌ Error: Opción inválida: {choice_number}. Las opciones válidas son: 1, 2, 3, 4, 5{Style.RESET_ALL}")
+                    continue
+                
                 return GameChoice.get_choice_by_number(choice_number)
                 
             except ValueError:
