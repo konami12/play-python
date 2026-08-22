@@ -98,10 +98,15 @@ def run_demo_mode() -> int:
     print(f"{Fore.CYAN}🎮 MODO DEMOSTRACIÓN{Style.RESET_ALL}")
     print("=" * 50)
     
+    # Demostrar el menú de selección
+    print(f"\n{Fore.YELLOW}1. Menú de Selección:{Style.RESET_ALL}")
+    game = RockPaperScissorsGame()
+    game._display_choices()
+    
     # Mostrar todas las combinaciones posibles
     choices = GameChoice.get_all_choices()
     
-    print(f"{Fore.YELLOW}Demostrando todas las reglas del juego:{Style.RESET_ALL}\n")
+    print(f"\n{Fore.YELLOW}2. Reglas del Juego:{Style.RESET_ALL}\n")
     
     for choice1 in choices:
         wins_against = []
